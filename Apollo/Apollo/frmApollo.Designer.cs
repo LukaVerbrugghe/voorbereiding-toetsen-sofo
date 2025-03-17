@@ -83,6 +83,7 @@
             this.Adres,
             this.Postnr,
             this.Gemeente});
+            this.lsvLeveranciers.FullRowSelect = true;
             this.lsvLeveranciers.HideSelection = false;
             this.lsvLeveranciers.Location = new System.Drawing.Point(13, 13);
             this.lsvLeveranciers.Name = "lsvLeveranciers";
@@ -90,6 +91,7 @@
             this.lsvLeveranciers.TabIndex = 0;
             this.lsvLeveranciers.UseCompatibleStateImageBehavior = false;
             this.lsvLeveranciers.View = System.Windows.Forms.View.Details;
+            this.lsvLeveranciers.SelectedIndexChanged += new System.EventHandler(this.lsvLeveranciers_SelectedIndexChanged);
             // 
             // LVnr
             // 
