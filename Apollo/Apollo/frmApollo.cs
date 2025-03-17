@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Apollo.DA;
+using Apollo.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,18 @@ namespace Apollo
         public frmApollo()
         {
             InitializeComponent();
+            inladenLeveranciers();
+        }
+
+        private void inladenLeveranciers()
+        {
+            lsvLeveranciers.Items.Clear();
+            foreach(Leverancier l in leveranciersDA.OphalenLeveranciers())
+            {
+                ListViewItem item = new ListViewItem(new String[] {l.id.ToString(), l.firmanaam, l.adres, l.postnr, l.gemeente });
+                item.Tag = l;
+                lsvLeveranciers.Items.Add(item);
+            }
         }
     }
 }
