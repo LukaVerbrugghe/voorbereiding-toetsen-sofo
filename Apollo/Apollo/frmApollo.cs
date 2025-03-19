@@ -33,6 +33,14 @@ namespace Apollo
 
         private void lsvLeveranciers_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lsvWijnen.Items.Clear();
+            foreach (Wijn w in WijnenDA.OphalenWijnen(lsvLeveranciers.SelectedItems[0].SubItems[0].Text))
+            {
+                ListViewItem wijnitem = new ListViewItem(new String[] {w.code.ToString(), w.jaar.ToString(), w.omschrijving, w.inhoud, w.ppf.ToString(), w.hoeveelheid.ToString(), w.voorraad.ToString()});
+                wijnitem.Tag = w;
+                lsvWijnen.Items.Add((wijnitem));
+            }
+
             Leverancier l = new Leverancier();
             if (lsvLeveranciers.SelectedItems.Count == 0)
                 return;
